@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9657dd7802229ef4493bd3da9478a2e5, type: 3}
+  m_Name: EnemyAttributionConfig
+  m_EditorClassIdentifier: 
+  attributions:
+  - enemyType: 1
+    hp: 10
+    hpGrowth: 1
+    attack: 3
+    attackGrowth: 0.3
+    defence: 2
+    defenceGrowth: 0.2
+  - enemyType: 2
+    hp: 15
+    hpGrowth: 1.5
+    attack: 2
+    attackGrowth: 0.2
+    defence: 3
+    defenceGrowth: 0.3

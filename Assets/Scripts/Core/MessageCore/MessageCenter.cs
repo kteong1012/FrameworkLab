@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public delegate void MessageCallback(MessageBase messageBase);
-public class MessageManager : MonoSingleton<MessageManager>
+public class MessageCenter : MonoSingleton<MessageCenter>
 {
     private const int MESSAGE_COUNT_PER_FRAME = 10;
 

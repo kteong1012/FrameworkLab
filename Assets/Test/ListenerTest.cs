@@ -7,11 +7,11 @@ public class ListenerTest : MonoBehaviour
 {
     private void OnEnable()
     {
-        MessageManager.Instance.RegisterListner(MessageType.Debug, DebugMessageCallback);
+        MessageCenter.Instance.RegisterListner(MessageType.Debug, DebugMessageCallback);
     }
     private void OnDisable()
     {
-        MessageManager.Instance.UnRegisterListner(MessageType.Debug, DebugMessageCallback);
+        MessageCenter.Instance.UnRegisterListner(MessageType.Debug, DebugMessageCallback);
     }
 
     private void DebugMessageCallback(MessageBase messageBase)
