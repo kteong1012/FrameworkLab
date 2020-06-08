@@ -1,4 +1,7 @@
-﻿public abstract class MessageBase
+﻿using System.IO;
+using UnityEngine;
+
+public abstract class MessageBase
 {
     public MessageType messageType;
     public bool once = false;
@@ -9,6 +12,7 @@ public enum MessageType
 {
     GameOver = 0,
     Debug = 1,
+    LoadTexture = 2,
 }
 
 public class GameOverMessage : MessageBase
@@ -25,5 +29,14 @@ public class DebugMessage : MessageBase
     {
         messageType = MessageType.Debug;
         debugStr = str;
+    }
+}
+public class LoadTextureMessage : MessageBase
+{
+    public Stream stream;
+    public LoadTextureMessage(Stream stream)
+    {
+        messageType = MessageType.LoadTexture;
+        this.stream = stream;
     }
 }

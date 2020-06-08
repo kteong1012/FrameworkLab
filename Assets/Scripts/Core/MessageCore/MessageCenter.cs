@@ -4,27 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public delegate void MessageCallback(MessageBase messageBase);
-public class MessageCenter : MonoSingleton<MessageCenter>
+public class MessageCenter : Singleton<MessageCenter>
 {
-    private const int MESSAGE_COUNT_PER_FRAME = 10;
-
     private Dictionary<MessageType, MessageCallback> _listenerDict = new Dictionary<MessageType, MessageCallback>();
-    private Queue<MessageBase> _msgList = new Queue<MessageBase>();
+    public Dictionary<MessageType, MessageCallback> ListenerDict => _listenerDict;
 
-    private void Update()
-    {
-        for(int i = 0; i < MESSAGE_COUNT_PER_FRAME; i++)
-        {
-            if (_msgList.Count == 0)
-                break;
-            MessageBase msg = _msgList.Dequeue();
-            _listenerDict[msg.messageType].Invoke(msg);
-            if (msg.once)
-            {
-                _listenerDict.Remove(msg.messageType);
-            }
-        }
-    }
+    private Queue<MessageBase> _msgList = new Queue<MessageBase>();
+    public Queue<MessageBase> MsgList => _msgList;
+
     public void RegisterListner(MessageType type, MessageCallback callback)
     {
         if (!_listenerDict.ContainsKey(type))
